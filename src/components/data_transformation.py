@@ -28,7 +28,7 @@ class DataTransformetaion:
             num_pipeline = Pipeline([("scaler", StandardScaler())])
             
             cat_pipeline = Pipeline(steps=[
-                ("onehot", OneHotEncoder()),
+                ("onehot", OneHotEncoder(handle_unknown="ignore")),
                 ('scaler', StandardScaler(with_mean=False))
                 ])
             logging.info(f"Categorical columns: {cat_features}")
